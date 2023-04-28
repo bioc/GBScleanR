@@ -1,4 +1,4 @@
-Changes in version 1.4.2 (2023-4-26)
+Changes in version 1.4.2 (2023-4-29)
 + Fix a typo in a man page.
 
 Changes in version 1.4.1 (2023-4-26)
