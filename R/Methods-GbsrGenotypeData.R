@@ -1640,15 +1640,8 @@ setMethod("setInfoFilter",
     info_gdsn <- ls.gdsn(index.gdsn(object, "annotation/info"))
     if(filt_list$mq != 0){
         if("MQ" %in% info_gdsn){
-<<<<<<< HEAD
-            filt <- .calcSubFilter(getInfo(object, "MQ"),
-                                   filt_list$mq, 0, TRUE, TRUE)
-            filt[is.na(filt)] <- TRUE
-            v <- v & filt
-=======
             v <- v & .calcSubFilter(getInfo(object, "MQ"),
                                    filt_list$mq, 0, TRUE, TRUE)
->>>>>>> main
         } else {
             warning("Filtering on MQ was specified but no MQ in the GDS.")
         }
@@ -1657,15 +1650,8 @@ setMethod("setInfoFilter",
     ## FS
     if(filt_list$fs != Inf){
         if("FS" %in% info_gdsn){
-<<<<<<< HEAD
-            filt <- .calcSubFilter(getInfo(object, "FS"),
-                                   filt_list$fs, Inf, FALSE, TRUE)
-            filt[is.na(filt)] <- TRUE
-            v <- v & filt
-=======
             v <- v & .calcSubFilter(getInfo(object, "FS"),
                                    filt_list$fs, Inf, FALSE, TRUE)
->>>>>>> main
         } else {
             warning("Filtering on FS was specified but no FS in the GDS.")
         }
@@ -1674,15 +1660,8 @@ setMethod("setInfoFilter",
     ## QD
     if(filt_list$qd != 0){
         if("QD" %in% info_gdsn){
-<<<<<<< HEAD
-            filt <- .calcSubFilter(getInfo(object, "QD"),
-                                   filt_list$qd, 0, TRUE, TRUE)
-            filt[is.na(filt)] <- TRUE
-            v <- v & filt
-=======
             v <- v & .calcSubFilter(getInfo(object, "QD"),
                                    filt_list$qd, 0, TRUE, TRUE)
->>>>>>> main
         } else {
             warning("Filtering on QD was specified but no QD in the GDS.")
         }
@@ -1691,15 +1670,8 @@ setMethod("setInfoFilter",
     ## SOR
     if(filt_list$sor != Inf){
         if("SOR" %in% info_gdsn){
-<<<<<<< HEAD
-            filt <- .calcSubFilter(getInfo(object, "SOR"),
-                                   filt_list$sor, Inf, FALSE, TRUE)
-            filt[is.na(filt)] <- TRUE
-            v <- v & filt
-=======
             v <- v & .calcSubFilter(getInfo(object, "SOR"),
                                    filt_list$sor, Inf, FALSE, TRUE)
->>>>>>> main
         } else {
             warning("Filtering on SOR was specified but no SOR in the GDS.")
         }
@@ -1708,15 +1680,8 @@ setMethod("setInfoFilter",
     ## MQRankSum
     if(any(filt_list$mqranksum != c(-Inf, Inf))){
         if("MQRankSum" %in% info_gdsn){
-<<<<<<< HEAD
-            filt <- .calcSubFilter(getInfo(object, "MQRankSum"),
-                                   filt_list$mqranksum, c(-Inf, Inf), TRUE, TRUE)
-            filt[is.na(filt)] <- TRUE
-            v <- v & filt
-=======
             v <- v & .calcSubFilter(getInfo(object, "MQRankSum"),
                                    filt_list$mqranksum, c(-Inf, Inf), TRUE, TRUE)
->>>>>>> main
         } else {
             warning("Filtering on MQRankSum was specified but no MQRankSum in the GDS.")
         }
@@ -1725,17 +1690,9 @@ setMethod("setInfoFilter",
     ## Alternative allele read count
     if(any(filt_list$readposranksum != c(-Inf, Inf))){
         if("ReadPosRankSum" %in% info_gdsn){
-<<<<<<< HEAD
-            filt <- .calcSubFilter(getInfo(object,
-                                           "ReadPosRankSum"),
-                                   filt_list$readposranksum, c(-Inf, Inf), TRUE, TRUE)
-            filt[is.na(filt)] <- TRUE
-            v <- v & filt
-=======
             v <- v & .calcSubFilter(getInfo(object,
                                            "ReadPosRankSum"),
                                    filt_list$readposranksum, c(-Inf, Inf), TRUE, TRUE)
->>>>>>> main
         } else {
             warning("Filtering on ReadPosRankSum was specified but no ReadPosRankSum in the GDS.")
         }
@@ -1744,15 +1701,8 @@ setMethod("setInfoFilter",
     ## Total read count
     if(any(filt_list$baseqranksum != c(-Inf, Inf))){
         if("BaseQRankSum" %in% info_gdsn){
-<<<<<<< HEAD
-            filt <- .calcSubFilter(getInfo(object, "BaseQRankSum"),
-                                   filt_list$baseqranksum, c(-Inf, Inf), TRUE, TRUE)
-            filt[is.na(filt)] <- TRUE
-            v <- v & filt
-=======
             v <- v & .calcSubFilter(getInfo(object, "BaseQRankSum"),
                                    filt_list$baseqranksum, c(-Inf, Inf), TRUE, TRUE)
->>>>>>> main
         } else {
             warning("Filtering on BaseQRankSum was specified but no BaseQRankSum in the GDS.")
         }
