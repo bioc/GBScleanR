@@ -1,7 +1,9 @@
+Changes in version 1.8.19 (2024-8-27)
++ Update in gbsrGDS2VCF() to solve the issue that an open GDS file cannot be copied on Windows machines
+
 Changes in version 1.8.18 (2024-6-11)
 + Minor bug fix in getGenotype().
 + Update README.
-
 
 Changes in version 1.8.16 (2024-5-28)
 + Minor update in resetCallFilter().

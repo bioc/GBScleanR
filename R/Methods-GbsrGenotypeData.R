@@ -2267,7 +2267,13 @@ setMethod("gbsrGDS2VCF",
               # Prepare the temporary GDS file to reorganize data to be output
               check <- .checkNodes(object = object)
               tmp_gds <- tempfile(pattern = "tmp", fileext = ".gds")
-              file.copy(from = object$filename, to = tmp_gds, overwrite = TRUE)
+              tmpgds <- createfn.gds(filename = tmp_gds, allow.duplicate = TRUE)
+              gdsn_ls <- ls.gdsn(node = object$root, include.hidden = TRUE)
+              for(i in gdsn_ls){
+                  copyto.gdsn(node = tmpgds,
+                              source = index.gdsn(object$root, i))
+              }
+              closefn.gds(tmpgds)
               tmpgds <- seqOpen(gds.fn = tmp_gds, readonly = FALSE)
 
               # Replace genotype call data if node == "cor" was specified
