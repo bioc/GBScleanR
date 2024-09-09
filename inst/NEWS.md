@@ -1,3 +1,6 @@
+Changes in version 1.8.20 (2024-9-9)
++ Update in the vignette.
+
 Changes in version 1.8.19 (2024-8-27)
 + Update in gbsrGDS2VCF() to solve the issue that an open GDS file cannot be copied on Windows machines
 
