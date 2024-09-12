@@ -1,3 +1,6 @@
+Changes in version 1.8.21 (2024-9-12)
++ Minor bug fix in plotDosage() and plotReadRatio().
+
 Changes in version 1.8.20 (2024-9-9)
 + Update in the vignette.
 
