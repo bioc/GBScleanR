@@ -1,3 +1,6 @@
+Changes in version 1.8.22 (2024-10-3)
++ Bug fix in setGeno() and getGenotype().
+
 Changes in version 1.8.21 (2024-9-12)
 + Minor bug fix in plotDosage() and plotReadRatio().
 
