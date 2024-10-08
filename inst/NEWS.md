@@ -1,3 +1,9 @@
+Changes in version 1.8.23 (2024-10-8)
++ Minor update in gbsrGDS2VCF() in which data nodes stored as "VL_Int" were 
++ error prone and thus the code to remove VL_Int-type data was added.
++ A code to set data type to int64 for typical data that is converted to 
++ VL_Int as default was added to gbsrVCF2GDS().
+
 Changes in version 1.8.22 (2024-10-3)
 + Bug fix in setGeno() and getGenotype().
 
