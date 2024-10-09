@@ -86,6 +86,23 @@ void calcMissmap(vector<double> & prob,
     }
 }
 
+void offsetProb(vector<double> & prob,
+                const double & eseq1){
+    double offset = eseq1;
+
+    for(size_t g = 0; g < prob.size(); ++g){
+        prob[g] += offset;
+    }
+
+    double sum_prob = 0;
+    for(size_t g = 0; g < prob.size(); ++g){
+        sum_prob += prob[g];
+    }
+
+    for(size_t g = 0; g < prob.size(); ++g){
+        prob[g] = prob[g] / sum_prob;
+    }
+}
 
 // Function to calculate probabilities of founder genotype patterns.
 NumericVector calcPemit(NumericMatrix p_ref,
@@ -115,6 +132,8 @@ NumericVector calcPemit(NumericMatrix p_ref,
                             eseq[0], eseq[1],
                                          w1[m], w2[m], het[0]);
         calcMissmap(prob, mismap1[m], mismap2[m], het[0]);
+        offsetProb(prob, eseq[1]);
+
         for(int j = 0; j < n_p[0]; ++j){
             col_i = j * n_f[0] + i;
             p_prob = prob[possiblegeno[col_i]];
@@ -158,6 +177,7 @@ vector<double> calcEmit(RMatrix<double> ref,
 
     prob = calcGenoprob(ref_i[m], alt_i[m], eseq[0], eseq[1], w1[m], w2[m], het);
     calcMissmap(prob, mismap1[m], mismap2[m], het);
+    offsetProb(prob, eseq[1]);
 
     for(size_t i = 0; i < prob.size(); ++i){
         log10_safe(prob[i]);
