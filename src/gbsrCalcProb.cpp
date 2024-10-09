@@ -87,11 +87,37 @@ void calcMissmap(vector<double> & prob,
 }
 
 void offsetProb(vector<double> & prob,
-                const double & eseq1){
-    double offset = eseq1;
+                const bool & het){
+    double threshold = 1e-100;
+    double offset = 0.005;
 
+    bool do_offset = false;
     for(size_t g = 0; g < prob.size(); ++g){
-        prob[g] += offset;
+        if(het){
+            if(prob[g] <= threshold){
+                do_offset = true;
+            }
+
+        } else {
+            if(g == 0 & g == 2){
+                if(prob[g] <= threshold){
+                    do_offset = true;
+                }
+            }
+        }
+    }
+
+    if(do_offset){
+        for(size_t g = 0; g < prob.size(); ++g){
+            if(het){
+                prob[g] += offset;
+
+            } else {
+                if(g == 0 & g == 2){
+                    prob[g] += offset;
+                }
+            }
+        }
     }
 
     double sum_prob = 0;
@@ -132,7 +158,7 @@ NumericVector calcPemit(NumericMatrix p_ref,
                             eseq[0], eseq[1],
                                          w1[m], w2[m], het[0]);
         calcMissmap(prob, mismap1[m], mismap2[m], het[0]);
-        offsetProb(prob, eseq[1]);
+        offsetProb(prob, het);
 
         for(int j = 0; j < n_p[0]; ++j){
             col_i = j * n_f[0] + i;
@@ -177,7 +203,7 @@ vector<double> calcEmit(RMatrix<double> ref,
 
     prob = calcGenoprob(ref_i[m], alt_i[m], eseq[0], eseq[1], w1[m], w2[m], het);
     calcMissmap(prob, mismap1[m], mismap2[m], het);
-    offsetProb(prob, eseq[1]);
+    offsetProb(prob, het);
 
     for(size_t i = 0; i < prob.size(); ++i){
         log10_safe(prob[i]);
