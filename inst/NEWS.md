@@ -1,3 +1,6 @@
+Changes in version 2.6.1 (2026-07-22)
++ Fix loadGDS() and reopenGDS() for R 4.6.1 by constructing GbsrGenotypeData without triggering SeqVarGDSClass validity on an S4 object (gdsfmt `$` access).
+
 Changes in version 2.5.10 (2026-03-31)
 + Enable setParents() and estGeno() support a scheme with a single parental line.
 + Minor bug fix in getGenotype().
