@@ -1,5 +1,5 @@
-Changes in version 2.7.3 (2026-07-21)
-+ Restore the .newGbsrGenotypeData() workaround in loadGDS() and reopenGDS() for R 4.6.1 vignette builds where gdsfmt < 1.49.5 lacks the S4 `$` method for gds.class.
+Changes in version 2.7.4 (2026-07-28)
++ Adjust package version for Bioconductor submission while keeping the v2.7.2 loadGDS()/reopenGDS() construction.
 
 Changes in version 2.7.2 (2026-07-13)
 + Restore original new() construction in loadGDS() and reopenGDS(); gdsfmt now supports $ slot access so the previous workaround is no longer needed.
